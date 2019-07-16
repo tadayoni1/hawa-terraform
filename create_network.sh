@@ -2,4 +2,4 @@
 
 terraform init
 
-terraform apply -var-file="paramaters.tfvars"
+terraform apply -var-file="parameters.tfvars"
