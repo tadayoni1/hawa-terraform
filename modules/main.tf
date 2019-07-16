@@ -1,6 +1,6 @@
 module "network" {
     source = "./network/"
-    enable_dns_hostnames = "${var.enable_dns_hostnames}"
+    EnableDnsHostnames = "${var.EnableDnsHostnames}"
     VpcCIDR = "${var.VpcCIDR}"
     EnvironmentName = "${var.EnvironmentName}"
 }
