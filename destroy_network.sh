@@ -3,5 +3,5 @@
 cd modules
 terraform init
 
-terraform destory -var-file="../parameters.tfvars"
+terraform destroy -var-file="../parameters.tfvars"
 cd ..
