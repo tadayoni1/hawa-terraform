@@ -3,5 +3,5 @@
 cd modules
 terraform init
 
-terraform apply -var-file="parameters.tfvars"
+terraform apply -var-file="../parameters.tfvars"
 cd ..
