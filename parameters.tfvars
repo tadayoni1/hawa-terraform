@@ -1,6 +1,7 @@
 # General
 EnvironmentName = "hawa"
 #S3BucketName    = "tirgan-hawa"
+region          = "us-west-2"
 
 
 # VPC
