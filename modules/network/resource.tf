@@ -1,5 +1,5 @@
 resource "aws_vpc" "main" {
-  cidr_block           = "${var.VpcCidr}"
+  cidr_block           = "${var.VpcCIDR}"
   instance_tenancy     = "dedicated"
   enable_dns_hostnames = "${var.enable_dns_hostnames}"
 
