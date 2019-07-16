@@ -1,4 +1,4 @@
-variable enable_dns_hostnames {}
+variable EnableDnsHostnames {}
 variable VpcCIDR {}
 variable EnvironmentName {
   
