@@ -123,7 +123,7 @@ resource "aws_route_table" "private_rt_1" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_internet_gateway.igw.id}"
+    gateway_id = "${aws_internet_gateway.ngw1.id}"
   }
 
   tags = {
@@ -141,7 +141,7 @@ resource "aws_route_table" "private_rt_2" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_internet_gateway.igw.id}"
+    gateway_id = "${aws_internet_gateway.ngw2.id}"
   }
 
   tags = {
