@@ -13,6 +13,6 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = "${aws_vpc.main.id}"
 
   tags = {
-    Name = "${var.EnvironmentName}-vpc"
+    Name = "${var.EnvironmentName}-igw"
   }
 }
