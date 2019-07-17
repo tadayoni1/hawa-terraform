@@ -4,6 +4,7 @@ variable EnvironmentName {}
 # VPC
 variable EnableDnsHostnames {}
 variable VpcCIDR {}
+variable PrivateDestinationCidrBlock {}
 
 # Subnets
 variable PublicSubnet1CIDR {}
