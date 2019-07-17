@@ -118,7 +118,7 @@ resource "aws_route_table_association" "rta2" {
   route_table_id = "${aws_route_table.public_rt.id}"
 }
 
-resource "aws_route_table" "private_rt" {
+resource "aws_route_table" "private_rt_1" {
   vpc_id = "${aws_vpc.default.id}"
 
   route {
@@ -127,7 +127,7 @@ resource "aws_route_table" "private_rt" {
   }
 
   tags = {
-    Name = "${var.EnvironmentName}-private_rt-route-table"
+    Name = "${var.EnvironmentName}-private_rt-route-table-1"
   }
 }
 
@@ -135,6 +135,20 @@ resource "aws_route_table_association" "rta1" {
   subnet_id      = "${aws_subnet.private_subnet_1.id}"
   route_table_id = "${aws_route_table.private_rt.id}"
 }
+
+resource "aws_route_table" "private_rt_2" {
+  vpc_id = "${aws_vpc.default.id}"
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "${aws_internet_gateway.igw.id}"
+  }
+
+  tags = {
+    Name = "${var.EnvironmentName}-private_rt-route-table-2"
+  }
+}
+
 resource "aws_route_table_association" "rta2" {
   subnet_id      = "${aws_subnet.private_subnet_2.id}"
   route_table_id = "${aws_route_table.private_rt.id}"
