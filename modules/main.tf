@@ -3,7 +3,6 @@ module "network" {
 
     EnableDnsHostnames          = "${var.EnableDnsHostnames}"
     VpcCIDR                     = "${var.VpcCIDR}"
-    PrivateDestinationCidrBlock = "${var.VpcCIDR}"
     EnvironmentName             = "${var.EnvironmentName}"
 
     PublicSubnet1CIDR           = "${var.PublicSubnet1CIDR}"

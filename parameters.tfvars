@@ -6,7 +6,6 @@ aws_region                  = "us-west-2"
 
 # VPC
 VpcCIDR                     = "10.0.0.0/16"
-PrivateDestinationCidrBlock = "10.0.0.0/16"
 EnableDnsHostnames          = true
 PublicSubnet1CIDR           = "10.0.0.0/24"
 PublicSubnet2CIDR           = "10.0.1.0/24"
