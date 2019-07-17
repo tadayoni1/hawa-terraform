@@ -31,7 +31,7 @@ resource "aws_subnet" "public_subnet_1" {
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
 
   tags = {
-    Name = "Main"
+    Name = "${var.EnvironmentName}-public-subnet-1"
   }
 
 }
@@ -42,7 +42,7 @@ resource "aws_subnet" "public_subnet_2" {
   availability_zone = "${data.aws_availability_zones.available.names[1]}"
 
   tags = {
-    Name = "Main"
+    Name = "${var.EnvironmentName}-public-subnet-2"
   }
 }
 
@@ -53,7 +53,7 @@ resource "aws_subnet" "private_subnet_1" {
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
 
   tags = {
-    Name = "Main"
+    Name = "${var.EnvironmentName}-private-subnet-1"
   }
 }
 
@@ -64,6 +64,33 @@ resource "aws_subnet" "private_subnet_2" {
   availability_zone = "${data.aws_availability_zones.available.names[1]}"
 
   tags = {
-    Name = "Main"
+    Name = "${var.EnvironmentName}-private-subnet-2"
+  }
+}
+
+# NAT Gateway
+resource "aws_eip" "eip1" {
+  vpc      = true
+
+}
+resource "aws_eip" "eip2" {
+  vpc      = true
+}
+
+resource "aws_nat_gateway" "ngw1" {
+  allocation_id = "${aws_eip.eip1.id}"
+  subnet_id     = "${aws_subnet.public_subnet_1.id}"
+
+  tags = {
+    Name = "${var.EnvironmentName}-nat-gateway-1"
+  }
+}
+
+resource "aws_nat_gateway" "ngw2" {
+  allocation_id = "${aws_eip.eip2.id}"
+  subnet_id     = "${aws_subnet.public_subnet_2.id}"
+
+  tags = {
+    Name = "${var.EnvironmentName}-nat-gateway-2"
   }
 }
