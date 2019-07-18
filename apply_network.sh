@@ -3,5 +3,5 @@
 cd modules/network
 terraform init
 
-terraform destroy -var-file="../../parameters.tfvars"
+terraform apply -var-file="../../parameters.tfvars"
 cd ../..
