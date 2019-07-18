@@ -46,9 +46,6 @@ resource "aws_iam_policy" "iam_policy" {
 }
 EOF
 
-  tags = {
-    Name = "${var.EnvironmentName}-iam-policy"
-  }
 }
 
 resource "aws_iam_policy_attachment" "iam-policy-attach" {
