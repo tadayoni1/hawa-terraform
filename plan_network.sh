@@ -3,5 +3,5 @@
 cd modules/network
 terraform init
 
-terraform plan -var-file="../parameters.tfvars"
+terraform plan -var-file="../../parameters.tfvars"
 cd ../..
