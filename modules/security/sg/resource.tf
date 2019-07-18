@@ -55,7 +55,7 @@ resource "aws_security_group" "lb" {
   vpc_id      = "${var.VPC_ID}"
 
   tags = {
-    Name = "${var.EnvironmentName}-LB"
+    Name = "${var.EnvironmentName}-lb"
   }
 
 }
