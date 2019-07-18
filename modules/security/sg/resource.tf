@@ -1,53 +1,58 @@
+resource "aws_security_group_rule" "ingress_instance_ssh" {
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  cidr_blocks              = ["0.0.0.0/0"]
+
+  security_group_id        = "${aws_security_group.web_server.id}"
+}
+
+resource "aws_security_group_rule" "ingress_web_server_http" {
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.lb.id}"
+
+  security_group_id        = "${aws_security_group.web_server.id}"
+}
+
 resource "aws_security_group" "allow_http_webserver" {
   name        = "${var.EnvironmentName}"
   description = "Allow http traffic to/from Web Server"
   vpc_id      = "${var.VPC_ID}"
 
-  ingress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "TCP"
-    source_security_group_id  = ["${aws_security_group.allow_http_lb.id}"]
-  }
-
-  ingress {
-    from_port        = 22
-    to_port          = 22
-    protocol         = "TCP"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "TCP"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
   tags = {
-    Name = "${var.EnvironmentName}-WebServer"
+    Name = "${var.EnvironmentName}-web-server"
   }
 
+}
+
+
+resource "aws_security_group_rule" "ingress_lb_http" {
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  cidr_blocks              = ["0.0.0.0/0"]
+
+  security_group_id         = "${aws_security_group.lb.id}"
+}
+resource "aws_security_group_rule" "egress_lb_http" {
+  type                     = "egress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.web_server.id}"
+
+  security_group_id = "${aws_security_group.lb.id}"
 }
 
 resource "aws_security_group" "allow_http_lb" {
   name        = "${var.EnvironmentName}"
   description = "Allow http traffic to/from LB"
   vpc_id      = "${var.VPC_ID}"
-
-  ingress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "TCP"
-    cidr_blocks      = ["0.0.0.0/0"] 
-  }
-
-  egress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "TCP"
-    source_security_group_id  = ["${aws_security_group.allow_http_webserver.id}"]
-  }
 
   tags = {
     Name = "${var.EnvironmentName}-LB"
