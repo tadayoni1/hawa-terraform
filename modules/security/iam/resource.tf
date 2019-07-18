@@ -11,19 +11,7 @@ resource "aws_iam_role" "iam_role" {
         "Service": "ec2.amazonaws.com"
       },
       "Effect": "Allow",
-      "Sid": "0"
-    },
-    {
-        "Sid": "1",
-        "Effect": "Allow",
-        "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::${var.S3BucketName}/*"
-    },
-    {
-        "Sid": "2",
-        "Effect": "Allow",
-        "Action": "s3:ListBucket",
-        "Resource": "arn:aws:s3:::${var.S3BucketName}"
+      "Sid": ""
     }
   ]
 }
@@ -32,4 +20,39 @@ EOF
   tags = {
     Name = "${var.EnvironmentName}-iam-role"
   }
+}
+
+resource "aws_iam_policy" "iam_policy" {
+  name        = "${var.EC2InstanceRole}"
+  description = "Policy to access s3 Bucket"
+
+  policy      = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "VisualEditor0",
+          "Effect": "Allow",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::tirgan-hawa/*"
+      },
+      {
+          "Sid": "VisualEditor1",
+          "Effect": "Allow",
+          "Action": "s3:ListBucket",
+          "Resource": "arn:aws:s3:::tirgan-hawa"
+      }
+  ]
+}
+EOF
+
+  tags = {
+    Name = "${var.EnvironmentName}-iam-policy"
+  }
+}
+
+resource "aws_iam_policy_attachment" "iam-policy-attach" {
+  name       = "${var.EC2InstanceRole}-attach"
+  roles      = ["${aws_iam_role.iam_role.name}"]
+  policy_arn = "${aws_iam_policy.iam_policy.arn}"
 }
