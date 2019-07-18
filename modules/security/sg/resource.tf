@@ -18,8 +18,8 @@ resource "aws_security_group_rule" "ingress_web_server_http" {
   security_group_id        = "${aws_security_group.web_server.id}"
 }
 
-resource "aws_security_group" "allow_http_webserver" {
-  name        = "${var.EnvironmentName}"
+resource "aws_security_group" "web_server" {
+  name        = "${var.EnvironmentName}-webserver"
   description = "Allow http traffic to/from Web Server"
   vpc_id      = "${var.VPC_ID}"
 
@@ -49,8 +49,8 @@ resource "aws_security_group_rule" "egress_lb_http" {
   security_group_id = "${aws_security_group.lb.id}"
 }
 
-resource "aws_security_group" "allow_http_lb" {
-  name        = "${var.EnvironmentName}"
+resource "aws_security_group" "lb" {
+  name        = "${var.EnvironmentName}-lb"
   description = "Allow http traffic to/from LB"
   vpc_id      = "${var.VPC_ID}"
 
