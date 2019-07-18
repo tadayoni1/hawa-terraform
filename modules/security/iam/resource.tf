@@ -1,5 +1,6 @@
 resource "aws_iam_role" "iam_role" {
   name = "${var.EC2InstanceRole}"
+  description = "EC2 InstanceRole to access s3 Bucket"
 
   assume_role_policy = <<EOF
 {
@@ -31,13 +32,13 @@ resource "aws_iam_policy" "iam_policy" {
   "Version": "2012-10-17",
   "Statement": [
       {
-          "Sid": "VisualEditor0",
+          "Sid": "0",
           "Effect": "Allow",
           "Action": "s3:GetObject",
           "Resource": "arn:aws:s3:::tirgan-hawa/*"
       },
       {
-          "Sid": "VisualEditor1",
+          "Sid": "1",
           "Effect": "Allow",
           "Action": "s3:ListBucket",
           "Resource": "arn:aws:s3:::tirgan-hawa"
