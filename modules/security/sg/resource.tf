@@ -46,7 +46,7 @@ resource "aws_security_group" "allow_http_lb" {
     from_port        = 80
     to_port          = 80
     protocol         = "TCP"
-    security_groups  = ["${aws_security_group.allow_http_lb.id}"]
+    security_groups  = ["${aws_security_group.allow_http_webserver.id}"]
   }
 
   tags = {
