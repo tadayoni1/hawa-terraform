@@ -10,3 +10,11 @@ module "network" {
     PrivateSubnet1CIDR          = "${var.PrivateSubnet1CIDR}"
     PrivateSubnet2CIDR          = "${var.PrivateSubnet2CIDR}"
 }
+
+module "iam" {
+    source = "./iam/"
+
+    EnvironmentName             = "${var.EnvironmentName}"
+    S3BucketName                = "${var.S3BucketName}"
+
+}

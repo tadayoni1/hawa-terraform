@@ -1,6 +1,5 @@
 # General
 EnvironmentName             = "hawa"
-#S3BucketName                = "tirgan-hawa"
 aws_region                  = "us-west-2"
 
 
@@ -15,7 +14,8 @@ PrivateSubnet2CIDR          = "10.0.3.0/24"
 
 
 # IAM
-#EC2InstanceRole = "HawaInstance"
+EC2InstanceRole             = "HawaInstance"
+S3BucketName                = "tirgan-hawa"
 
 
 # ASG
