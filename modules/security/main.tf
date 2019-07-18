@@ -10,5 +10,5 @@ module "sg" {
     source= "./sg/"
 
     EnvironmentName             = "${var.EnvironmentName}"
-    VPC_ID                      = "${var.EnvironmentName}"
+    VPC_ID                      = "${var.VPC_ID}"
 }
