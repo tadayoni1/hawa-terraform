@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_http_webserver" {
   name        = "${var.EnvironmentName}"
   description = "Allow http traffic to/from Web Server"
-  vpc_id      = "${aws_vpc.main.id}"
+  vpc_id      = "${var.VPC_ID}"
 
   ingress {
     from_port        = 80
@@ -33,13 +33,13 @@ resource "aws_security_group" "allow_http_webserver" {
 resource "aws_security_group" "allow_http_lb" {
   name        = "${var.EnvironmentName}"
   description = "Allow http traffic to/from LB"
-  vpc_id      = "${aws_vpc.main.id}"
+  vpc_id      = "${var.VPC_ID}"
 
   ingress {
     from_port        = 80
     to_port          = 80
     protocol         = "TCP"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = ["0.0.0.0/0"] 
   }
 
   egress {
