@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 pushd modules/network
-terraform init -backend-config="key=state/newtwork/hawa_backend_config"
+terraform init -backend-config="key=state/network/hawa_backend_config"
 
 vpc_id=$(terraform output "VpcID")
 popd
