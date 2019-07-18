@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-cd modules/network
-terraform init
+pushd modules/network
+terraform init -backend-config="key=state/network/hawa_backend_config"
 
 terraform plan -var-file="../../parameters.tfvars"
-cd ../..
+popd

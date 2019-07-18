@@ -9,6 +9,9 @@ variable "EC2InstanceRole" {}
 # VPC
 variable EnableDnsHostnames {}
 variable VpcCIDR {}
+## Loaded when terraform apply is run
+variable "VPC_ID" {}
+
 
 # Subnets
 variable PublicSubnet1CIDR {}

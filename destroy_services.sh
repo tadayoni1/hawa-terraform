@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-cd modules/services
-terraform init
+pushd modules/services
+terraform init -backend-config="key=state/services/hawa_backend_config"
 
 terraform destroy -var-file="../../parameters.tfvars"
-cd ../..
+popd
+
