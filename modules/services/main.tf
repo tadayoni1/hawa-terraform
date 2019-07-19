@@ -9,3 +9,19 @@ module "asg" {
     instance_key_name           = "${var.instance_key_name}"
     web_server_sg_id            = "${var.web_server_sg_id}"
 }
+
+module "lb" {
+    source = "./lb/"
+
+    EnvironmentName             = "${var.EnvironmentName}"
+
+    HealthCheckIntervalSeconds  = "${var.HealthCheckIntervalSeconds}"
+    HealthCheckPath             = "${var.HealthCheckPath}"
+    HealthCheckProtocol         = "${var.HealthCheckProtocol}"
+    HealthCheckTimeoutSeconds   = "${var.HealthCheckTimeoutSeconds}"
+    HealthyThresholdCount       = "${var.HealthyThresholdCount}"
+    UnhealthyThresholdCount     = "${var.UnhealthyThresholdCount}"
+    TargetGroupPort             = "${var.TargetGroupPort}"
+    TargetGroupProtocol         = "${var.TargetGroupProtocol}"
+
+}

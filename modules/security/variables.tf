@@ -24,3 +24,14 @@ variable PrivateSubnet2CIDR {}
 variable "image_id" {}
 variable "instance_type" {}
 variable "instance_key_name" {}
+
+# LB
+variable "HealthCheckIntervalSeconds" {}
+variable "HealthCheckPath" {}
+variable "HealthCheckProtocol" {}
+variable "HealthCheckTimeoutSeconds" {}
+variable "HealthyThresholdCount" {}
+variable "UnhealthyThresholdCount" {}
+variable "TargetGroupPort" {}
+variable "TargetGroupProtocol" {}
+

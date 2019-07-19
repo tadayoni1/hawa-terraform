@@ -20,12 +20,16 @@ PrivateSubnet2CIDR          = "10.0.3.0/24"
 #ASGMinSize                 = 2
 #ASGMaxSize                 = 6
 #ASGDesiredSize             = 4
-#HealthCheckIntervalSeconds = 10
-#HealthCheckPath            = "/"
-#HealthCheckProtocol        = "HTTP"
-#HealthCheckTimeoutSeconds  = 8
-#HealthyThresholdCount      = 2
-#UnhealthyThresholdCount    = 2
 image_id                   = "ami-005bdb005fb00e791"
 instance_type              = "t2.micro"
 instance_key_name          = "hawa"
+
+# LB
+HealthCheckIntervalSeconds = 10
+HealthCheckPath            = "/"
+HealthCheckProtocol        = "HTTP"
+HealthCheckTimeoutSeconds  = 8
+HealthyThresholdCount      = 2
+UnhealthyThresholdCount    = 2
+TargetGroupPort            = 80
+TargetGroupProtocol        = "HTTP"

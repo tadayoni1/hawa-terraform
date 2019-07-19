@@ -26,3 +26,14 @@ variable "instance_type" {}
 variable "instance_key_name" {}
 ## Loaded when security modules are run, only used for server modules
 variable "web_server_sg_id" {}
+
+
+# LB
+variable "HealthCheckIntervalSeconds" {}
+variable "HealthCheckPath" {}
+variable "HealthCheckProtocol" {}
+variable "HealthCheckTimeoutSeconds" {}
+variable "HealthyThresholdCount" {}
+variable "UnhealthyThresholdCount" {}
+variable "TargetGroupPort" {}
+variable "TargetGroupProtocol" {}

@@ -1,3 +1,4 @@
+# Launch Configuration
 data "template_file" "launch" {
   template = "${file("${path.module}/user-data.sh.tpl")}"
 }
@@ -16,3 +17,5 @@ resource "aws_launch_configuration" "lc" {
     create_before_destroy = true
   }
 }
+
+# Auto Scaling Group
