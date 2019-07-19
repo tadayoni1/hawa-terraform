@@ -19,12 +19,12 @@ resource "aws_security_group_rule" "ingress_web_server_http" {
 }
 
 resource "aws_security_group" "web_server" {
-  name        = "${var.EnvironmentName}-webserver"
+  name        = "${var.EnvironmentName}-sg-webserver"
   description = "Allow http traffic to/from Web Server"
   vpc_id      = "${var.VPC_ID}"
 
   tags = {
-    Name = "${var.EnvironmentName}-web-server"
+    Name = "${var.EnvironmentName}-sg-web-server"
   }
 
 }
@@ -50,12 +50,12 @@ resource "aws_security_group_rule" "egress_lb_http" {
 }
 
 resource "aws_security_group" "lb" {
-  name        = "${var.EnvironmentName}-lb"
+  name        = "${var.EnvironmentName}-sg-lb"
   description = "Allow http traffic to/from LB"
   vpc_id      = "${var.VPC_ID}"
 
   tags = {
-    Name = "${var.EnvironmentName}-lb"
+    Name = "${var.EnvironmentName}-sg-lb"
   }
 
 }

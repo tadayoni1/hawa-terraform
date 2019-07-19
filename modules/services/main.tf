@@ -25,4 +25,9 @@ module "lb" {
     TargetGroupPort             = "${var.TargetGroupPort}"
     TargetGroupProtocol         = "${var.TargetGroupProtocol}"
 
+    PublicSubnet1CIDR           = "${var.PublicSubnet1CIDR}"
+    PublicSubnet2CIDR           = "${var.PublicSubnet2CIDR}"
+
+    lb_sg_id                    = "${var.lb_sg_id}"
+
 }

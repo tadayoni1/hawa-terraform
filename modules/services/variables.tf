@@ -26,6 +26,7 @@ variable "instance_type" {}
 variable "instance_key_name" {}
 ## Loaded when security modules are run, only used for server modules
 variable "web_server_sg_id" {}
+variable "lb_sg_id" {}
 
 
 # LB
