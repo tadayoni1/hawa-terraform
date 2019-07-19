@@ -14,6 +14,7 @@ module "lb" {
     source = "./lb/"
 
     EnvironmentName             = "${var.EnvironmentName}"
+    VPC_ID                      = "${var.VPC_ID}"
 
     HealthCheckIntervalSeconds  = "${var.HealthCheckIntervalSeconds}"
     HealthCheckPath             = "${var.HealthCheckPath}"
