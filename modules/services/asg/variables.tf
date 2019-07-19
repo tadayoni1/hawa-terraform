@@ -2,6 +2,10 @@
 variable "EnvironmentName" {}
 
 
+# Subnets
+variable private_subnet_1_id {}
+variable private_subnet_2_id {}
+
 # ASG
 variable "image_id" {}
 variable "instance_type" {}

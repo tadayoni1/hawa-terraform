@@ -13,6 +13,9 @@ module "asg" {
     ASGMaxSize                  = "${var.ASGMaxSize}"
     ASGDesiredSize              = "${var.ASGDesiredSize}"
 
+    private_subnet_1_id         = "${var.private_subnet_1_id}"
+    private_subnet_2_id         = "${var.private_subnet_2_id}"
+
     lb_target_group_arn         = "${module.lb.lb_target_group_arn}"
 
 }

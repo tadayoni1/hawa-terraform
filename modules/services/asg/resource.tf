@@ -22,7 +22,7 @@ resource "aws_launch_configuration" "lc" {
 resource "aws_autoscaling_group" "default" {
   name                      = "${var.EnvironmentName}-asg"
   launch_configuration      = "${aws_launch_configuration.lc.name}"
-  vpc_zone_identifier       = ["${var.vpc_subnet_ids}"]
+  vpc_zone_identifier       = ["${var.private_subnet_1_id}", "${var.private_subnet_2_id}"]
 
   max_size                  = "${var.ASGMaxSize}"
   min_size                  = "${var.ASGMinSize}"
