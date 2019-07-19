@@ -1,8 +1,8 @@
 resource "aws_lb_target_group" "tg" {
-  name     = "${var.EnvironmentName}-tg"
-  port     = "${var.TargetGroupPort}"
-  protocol = "${var.TargetGroupProtocol}"
-  vpc_id   = "${var.VPC_ID}"
+  name                  = "${var.EnvironmentName}-tg"
+  port                  = "${var.TargetGroupPort}"
+  protocol              = "${var.TargetGroupProtocol}"
+  vpc_id                = "${var.VPC_ID}"
 
   health_check {
     protocol            = "${var.HealthCheckProtocol}"
@@ -21,7 +21,7 @@ resource "aws_lb_target_group" "tg" {
 resource "aws_lb" "lb" {
   name                             = "${var.EnvironmentName}-lb"
 
-  subnets                          = ["${var.PublicSubnet1CIDR}, ${var.PublicSubnet2CIDR}"]
+  subnets                          = ["${var.public_subnet_1_id}, ${var.public_subnet_2_id}"]
   security_groups                  = ["${var.lb_sg_id}"]
 
   enable_cross_zone_load_balancing = true
@@ -34,12 +34,12 @@ resource "aws_lb" "lb" {
 }
 
 resource "aws_lb_listener" "lb_listener" {
-  load_balancer_arn = "${aws_lb.lb.arn}"
-  port              = "${var.TargetGroupPort}"
-  protocol          = "${var.TargetGroupProtocol}"
+  load_balancer_arn    = "${aws_lb.lb.arn}"
+  port                 = "${var.TargetGroupPort}"
+  protocol             = "${var.TargetGroupProtocol}"
 
   default_action {
-    type             = "forward"
-    target_group_arn = "${aws_lb_target_group.tg.arn}"
+    type               = "forward"
+    target_group_arn   = "${aws_lb_target_group.tg.arn}"
   }
 }

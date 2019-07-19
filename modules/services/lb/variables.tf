@@ -5,8 +5,8 @@ variable "EnvironmentName" {}
 variable "VPC_ID" {}
 
 # Subnets
-variable PublicSubnet1CIDR {}
-variable PublicSubnet2CIDR {}
+variable public_subnet_1_id {}
+variable public_subnet_2_id {}
 
 # LB
 variable "HealthCheckIntervalSeconds" {}

@@ -38,3 +38,6 @@ variable "HealthyThresholdCount" {}
 variable "UnhealthyThresholdCount" {}
 variable "TargetGroupPort" {}
 variable "TargetGroupProtocol" {}
+variable "public_subnet_1_id" {}
+variable "public_subnet_2_id" {}
+
