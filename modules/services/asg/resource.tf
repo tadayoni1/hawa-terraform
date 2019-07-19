@@ -13,13 +13,6 @@ resource "aws_launch_configuration" "lc" {
   security_groups      = ["${var.web_server_sg_id}"]
   user_data            = "${data.template_file.launch.rendered}"
 
-  root_block_device = [
-    {
-      volume_type = "standard"
-      volume_size = "8"
-    },
-  ]
-
   lifecycle {
     create_before_destroy = true
   }
@@ -35,4 +28,12 @@ resource "aws_autoscaling_group" "default" {
   min_size                  = "${var.ASGMinSize}"
   desired_capacity          = "${var.ASGDesiredSize}"
   target_group_arns         = ["${var.lb_target_group_arn}"]
+
+  root_block_device = [
+    {
+      volume_type = "standard"
+      volume_size = "8"
+    },
+  ]
+
 }
