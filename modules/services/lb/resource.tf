@@ -8,7 +8,7 @@ resource "aws_lb_target_group" "tg" {
     protocol            = "${var.HealthCheckProtocol}"
     path                = "${var.HealthCheckPath}"
     healthy_threshold   = "${var.HealthyThresholdCount}"
-    unhealthy_threshold = "${var.unhealthy_threshold}"
+    unhealthy_threshold = "${var.UnhealthyThresholdCount}"
     timeout             = "${var.HealthCheckTimeoutSeconds}"
     interval            = "${var.HealthCheckIntervalSeconds}"
   }
