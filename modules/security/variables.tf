@@ -24,6 +24,10 @@ variable PrivateSubnet2CIDR {}
 variable "image_id" {}
 variable "instance_type" {}
 variable "instance_key_name" {}
+variable "ASGMinSize" {}
+variable "ASGMaxSize" {}
+variable "ASGDesiredSize" {}
+
 
 # LB
 variable "HealthCheckIntervalSeconds" {}

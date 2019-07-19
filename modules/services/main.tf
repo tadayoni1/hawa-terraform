@@ -8,6 +8,13 @@ module "asg" {
     EC2InstanceRole             = "${var.EC2InstanceRole}"
     instance_key_name           = "${var.instance_key_name}"
     web_server_sg_id            = "${var.web_server_sg_id}"
+
+    ASGMinSize                  = "${var.ASGMinSize}"
+    ASGMaxSize                  = "${var.ASGMaxSize}"
+    ASGDesiredSize              = "${var.ASGDesiredSize}"
+
+    lb_target_group_arn         = "${module.lb.lb_target_group_arn}"
+
 }
 
 module "lb" {
