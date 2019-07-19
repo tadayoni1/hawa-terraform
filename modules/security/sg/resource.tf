@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "ingress_instance_ssh" {
 }
 
 resource "aws_security_group_rule" "egress_instance_all" {
-  type                     = "ingress"
+  type                     = "egress"
   from_port                = 0
   to_port                  = 65535
   protocol                 = "-1"
