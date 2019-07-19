@@ -21,7 +21,7 @@ ASGMinSize                 = 1
 ASGMaxSize                 = 4
 ASGDesiredSize             = 1
 image_id                   = "ami-07b4f3c02c7f83d59"
-instance_type              = "m4.large"
+instance_type              = "t2.micro"
 instance_key_name          = "hawa"
 
 # LB
