@@ -21,7 +21,7 @@ resource "aws_lb_target_group" "tg" {
 resource "aws_lb" "lb" {
   name                             = "${var.EnvironmentName}-lb"
 
-  subnets                          = ["${var.public_subnet_1_id}, ${var.public_subnet_2_id}"]
+  subnets                          = ["${var.public_subnet_1_id}", "${var.public_subnet_2_id}"]
   security_groups                  = ["${var.lb_sg_id}"]
 
   enable_cross_zone_load_balancing = true
