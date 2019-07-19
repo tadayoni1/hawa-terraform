@@ -19,12 +19,14 @@ S3BucketName                = "tirgan-hawa"
 
 
 # ASG
-#ASGMinSize                 = 2
-#ASGMaxSize                 = 6
-#ASGDesiredSize             = 4
-#HealthCheckIntervalSeconds = 10
-#HealthCheckPath            = "/"
-#HealthCheckProtocol        = "HTTP"
-#HealthCheckTimeoutSeconds  = 8
-#HealthyThresholdCount      = 2
-#UnhealthyThresholdCount    = 2
+ASGMinSize                 = 2
+ASGMaxSize                 = 6
+ASGDesiredSize             = 4
+HealthCheckIntervalSeconds = 10
+HealthCheckPath            = "/"
+HealthCheckProtocol        = "HTTP"
+HealthCheckTimeoutSeconds  = 8
+HealthyThresholdCount      = 2
+UnhealthyThresholdCount    = 2
+instance_type              = "t2.micro"
+instance_key_name          = "hawa"
