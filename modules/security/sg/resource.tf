@@ -8,6 +8,16 @@ resource "aws_security_group_rule" "ingress_instance_ssh" {
   security_group_id        = "${aws_security_group.web_server.id}"
 }
 
+resource "aws_security_group_rule" "egress_instance_all" {
+  type                     = "ingress"
+  from_port                = 0
+  to_port                  = 65535
+  protocol                 = "-1"
+  cidr_blocks              = ["0.0.0.0/0"]
+
+  security_group_id        = "${aws_security_group.web_server.id}"
+}
+
 resource "aws_security_group_rule" "ingress_web_server_http" {
   type                     = "ingress"
   from_port                = 80
