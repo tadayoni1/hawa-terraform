@@ -1,8 +1,5 @@
 data "template_file" "launch" {
   template = "${file("${path.module}/user-data.sh.tpl")}"
-
-  vars {
-  }
 }
 
 
