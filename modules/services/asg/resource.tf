@@ -34,4 +34,12 @@ resource "aws_autoscaling_group" "default" {
   desired_capacity          = "${var.ASGDesiredSize}"
   target_group_arns         = ["${var.lb_target_group_arn}"]
 
+tags = [
+    {
+      key                 = "Name"
+      value               = "${var.EnvironmentName}-instance"
+      propagate_at_launch = true
+    },
+  ]
+
 }
