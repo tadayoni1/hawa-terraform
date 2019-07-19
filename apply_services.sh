@@ -9,7 +9,7 @@ popd
 pushd modules/security
 terraform init -backend-config="key=state/security/hawa_backend_config"
 
-vpc_id=$(terraform output "web_server_sg_id")
+web_server_sg_id=$(terraform output "web_server_sg_id")
 popd
 
 pushd modules/services
