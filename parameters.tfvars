@@ -17,9 +17,9 @@ PrivateSubnet2CIDR          = "10.0.3.0/24"
 
 
 # ASG
-ASGMinSize                 = 2
-ASGMaxSize                 = 6
-ASGDesiredSize             = 4
+ASGMinSize                 = 1
+ASGMaxSize                 = 4
+ASGDesiredSize             = 1
 image_id                   = "ami-005bdb005fb00e791"
 instance_type              = "t2.micro"
 instance_key_name          = "hawa"
