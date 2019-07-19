@@ -5,7 +5,7 @@ data "template_file" "launch" {
 
 
 resource "aws_launch_configuration" "lc" {
-  name                 = "${var.EnvironmentName}-lc"
+  name_prefix          = "${var.EnvironmentName}-lc"
   image_id             = "${var.image_id}"
   instance_type        = "${var.instance_type}"
   iam_instance_profile = "${var.EC2InstanceRole}"
