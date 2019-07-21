@@ -1,6 +1,3 @@
-** Work in progress **
-
-
 # hawa-terraform
 Deploy a highly available web app using Terraform
 
@@ -19,3 +16,18 @@ Thus you need
 - A s3 bucket that gives permission to the IAM role for AutoScaling group which is defined in `parameters.tfvars` as `EC2InstanceRole'.
   - Also update `S3BucketName` in `parameters.tfvars`
 - A zip file containing your web app
+
+### Deployment Steps
+- Clone the repo or copy the automation code to your automation server.
+  - On your automation server run `./apply_all.sh`
+  - Alternatively you may run `./apply_network.sh`, `./apply_security.sh`, `./apply_services.sh` in the order.
+
+
+
+### License
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
