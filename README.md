@@ -11,6 +11,7 @@ The number of servers is configurable. Edit `parameters.tfvars` before deploymen
 - Aws account
 - An automation server in the same region as mentioned in the code which is us-west-2 in this example. A free tire t2.micro is good enough.
   - The server must have an IAM role that has permissions to create vpc, subnets, compute resources, .... You may pick ```AdministratorAccess``` policy for your IAM role.
+- A key pair that is configured in `parameters.tfvars`
 
 User data on the scaling group downloads a zip file from an s3 bucket and unzips it to `/var/www/html`. 
 Thus you need 
