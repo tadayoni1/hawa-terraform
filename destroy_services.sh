@@ -6,6 +6,8 @@ terraform init -backend-config="key=state/network/hawa_backend_config"
 vpc_id=$(terraform output "VpcID")
 public_subnet_1_id=$(terraform output "public_subnet_1_id")
 public_subnet_2_id=$(terraform output "public_subnet_2_id")
+private_subnet_1_id=$(terraform output "private_subnet_1_id")
+private_subnet_2_id=$(terraform output "private_subnet_2_id")
 popd
 
 pushd modules/security
