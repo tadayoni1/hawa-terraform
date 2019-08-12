@@ -22,7 +22,7 @@ Thus you need
 ### Deployment Steps
 - Clone the repo or copy the automation code to your automation server.
   - On your automation server run `./apply_all.sh`
-  - Alternatively you may run `./apply_network.sh`, `./apply_security.sh`, `./apply_services.sh` in the order.
+  - Alternatively you may run `./provision_network.sh`, `./provision_security.sh`, `./provision_services.sh` in the order.
 
 
 
