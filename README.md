@@ -24,6 +24,7 @@ Thus you need
   - On your automation server run `./apply_all.sh`
   - Alternatively you may run `./provision_network.sh`, `./provision_security.sh`, `./provision_services.sh` in the order.
 
+To delete all componenets run `destory_all.sh` or alternatively run `./provision_network.sh -m destroy`, `./provision_security.sh -m destroy`, `./provision_services.sh -m destroy` in the order.
 
 
 ### License
